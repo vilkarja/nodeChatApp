@@ -2,6 +2,9 @@
 
 Simple real-time chat application with different rooms to chat in
 
+Live example of the app can be viewed in https://quiet-plains-48282.herokuapp.com/
+
+
 ## Getting Started
 
 First clone the project on your local machine
