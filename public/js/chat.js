@@ -1,5 +1,6 @@
 var socket = io();
 
+//Scrolls to bottom of page when new message arrives, if user hasn't scrolled up
 function scrollToBottom () {
     //Selectors
     var messages = jQuery('#messages');
@@ -42,6 +43,7 @@ socket.on('updateUserList', function(users) {
     jQuery('#users').html(ol);
 });
 
+
 socket.on('newMessage', function(message) {
     var formattedTime = moment(message.createdAt).format('H:mm');
     var template = jQuery('#message-template').html();
@@ -81,7 +83,6 @@ locationBtn.on('click', function(e) {
     if (!navigator.geolocation) {
         return alert("Geolocation is not supported by your browser");
     }
-
     locationBtn.attr('disabled', 'disabled').text('Sending location..');
     navigator.geolocation.getCurrentPosition(function (position) {
         locationBtn.removeAttr('disabled').text('Send location');
